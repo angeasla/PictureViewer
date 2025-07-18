@@ -1,0 +1,212 @@
+/* style.css */
+
+/* Εφαρμόζει μαύρο φόντο σε όλα τα Panes, Containers και το viewport του ScrollPane */
+.root, .vbox, .border-pane, .stack-pane, .scroll-pane, .scroll-pane .viewport, .tool-bar {
+    -fx-background-color: black;
+}
+
+/* Εφαρμόζει τη γραμματοσειρά σε όλα τα στοιχεία */
+.root {
+    -fx-font-family: "Press Start 2P", "Segoe UI", sans-serif; /* Press Start 2P πρώτα, μετά Segoe UI για fallback */
+    -fx-font-size: 10px; /* Προσαρμόστε το μέγεθος ανάλογα */
+}
+
+/* Για τα ListCell (στο ListView) */
+.list-cell {
+    -fx-background-color: black;
+    -fx-text-fill: lightgray;
+    -fx-padding: 2px 5px; /* Προσθέτει λίγο οριζόντιο padding */
+}
+
+/* Για επιλεγμένο αντικείμενο στη λίστα */
+.list-cell:filled:selected {
+    -fx-background-color: #555555; /* Ένα σκούρο γκρι για επιλογή */
+    -fx-text-fill: white;
+    -fx-background-radius: 0;
+    -fx-border-width: 0; /* Αφαιρεί το περίγραμμα εστίασης */
+}
+
+/* Για hover πάνω στα στοιχεία της λίστας */
+.list-cell:filled:hover {
+    -fx-background-color: #333333; /* Ελαφρώς πιο ανοιχτό γκρι για hover */
+}
+
+/* Για τα κουμπιά */
+.button {
+    -fx-background-color: #333333;
+    -fx-text-fill: lightgray;
+    -fx-border-color: #666666;
+    -fx-border-width: 1px;
+    -fx-background-radius: 0;
+    -fx-border-radius: 0;
+    -fx-padding: 5px 10px; /* Προσθέσαμε αυτό για καλύτερη εμφάνιση */
+    -fx-min-width: 180px;  /* Ελάχιστο πλάτος για να χωράει το κείμενο */
+    -fx-alignment: CENTER; /* Κεντράρουμε το κείμενο στο κουμπί */
+}
+
+.button:hover {
+    -fx-background-color: #555555;
+    -fx-border-color: white;
+}
+
+/* --- Scrollbar Styling (DOS look) --- */
+/* Γενικές ρυθμίσεις για όλες τις scrollbars (vertical & horizontal) */
+.scroll-bar {
+    -fx-background-color: black; /* Μαύρο φόντο για όλη τη scrollbar */
+    -fx-background-radius: 0;   /* Καθόλου στρογγυλές γωνίες */
+    -fx-padding: 0;             /* Μηδενικό padding */
+}
+/* Το "track" της scrollbar (ο δρόμος που κινείται ο thumb) */
+.scroll-bar .track {
+    -fx-background-color: #333333; /* Σκούρο γκρι για το track */
+    -fx-background-insets: 0;      /* Χωρίς insets */
+    -fx-background-radius: 0;      /* Καθόλου στρογγυλές γωνίες */
+}
+/* Ο "thumb" της scrollbar (ο συρόμενος δείκτης) */
+.scroll-bar .thumb {
+    -fx-background-color: #777777; /* Πιο ανοιχτό γκρι για τον thumb */
+    -fx-background-insets: 1;      /* Μικρό insets για να ξεχωρίζει */
+    -fx-background-radius: 0;      /* Καθόλου στρογγυλές γωνίες */
+}
+/* Hover state για τον thumb */
+.scroll-bar .thumb:hover {
+    -fx-background-color: #AAAAAA; /* Ακόμα πιο ανοιχτό γκρι στο hover */
+}
+/* Τα κουμπιά "πάνω/κάτω" ή "αριστερά/δεξιά" (increment/decrement buttons) */
+.scroll-bar .increment-button,
+.scroll-bar .decrement-button {
+    -fx-background-color: #333333; /* Ίδιο με το track, ή ελαφρώς διαφορετικό */
+    -fx-background-insets: 0;
+    -fx-background-radius: 0;
+    -fx-padding: 0; /* Μηδενικό padding για πιο συμπαγή εμφάνιση */
+}
+/* Τα βέλη μέσα στα κουμπιά */
+.scroll-bar .increment-arrow,
+.scroll-bar .decrement-arrow {
+    -fx-shape: "M 0 0 L 1 0 L 0.5 1 Z"; /* Προσαρμοσμένο σχήμα βέλους (τρίγωνο) */
+    -fx-background-color: lightgray;    /* Χρώμα βέλους */
+    -fx-padding: 3px;                   /* Padding για το βέλος */
+}
+/* Hover state για τα κουμπιά */
+.scroll-bar .increment-button:hover,
+.scroll-bar .decrement-button:hover {
+    -fx-background-color: #555555; /* Ελαφρώς πιο ανοιχτό στο hover */
+}
+/* Όταν η scrollbar είναι disabled */
+.scroll-bar:disabled {
+    -fx-opacity: 0.5;
+}
+/* Ειδικές ρυθμίσεις για την κάθετη scrollbar */
+.scroll-bar:vertical {
+    -fx-pref-width: 12px; /* Πλάτος κάθετης scrollbar */
+}
+/* Ειδικές ρυθμίσεις για την οριζόντια scrollbar */
+.scroll-bar:horizontal {
+    -fx-pref-height: 12px; /* Ύψος οριζόντιας scrollbar */
+}
+/* Επιπλέον ρύθμιση για το ListView για να έχει ομοιόμορφο περίγραμμα αν χρειαστεί */
+.list-view {
+    -fx-background-color: black;
+    -fx-border-color: #666666; /* Όριο όπως τα κουμπιά */
+    -fx-border-width: 1px;
+    -fx-border-insets: 0;
+    -fx-background-insets: 0;
+}
+/* Αφαίρεση του focus border γύρω από τα στοιχεία της λίστας όταν είναι επιλεγμένα */
+.list-cell:filled:selected {
+    -fx-background-color: #555555;
+    -fx-text-fill: white;
+    -fx-background-radius: 0;
+    -fx-border-width: 0; /* Αφαιρεί το περίγραμμα εστίασης */
+}
+/* Αφαίρεση του focus ring γύρω από το ListView όταν έχει εστίαση */
+.list-view:focused {
+    -fx-background-color: black; /* Επαναφέρει το φόντο */
+    -fx-border-color: #666666;   /* Διατηρεί το περίγραμμα */
+    -fx-faint-focus-color: transparent; /* Αφαιρεί τον απαλό δακτύλιο εστίασης */
+    -fx-focus-color: transparent;       /* Αφαιρεί τον έντονο δακτύλιο εστίασης */
+}
+/* Αφαιρέστε το στρογγύλεμα από το ScrollPane */
+.scroll-pane {
+    -fx-background-radius: 0;
+    -fx-border-radius: 0;
+    -fx-background-insets: 0;
+    -fx-padding: 0;
+}
+/* Ειδικά για τα ScrollBar Arrows (τα βελάκια) - για να είναι τετράγωνα και χωρίς σκιές */
+.scroll-bar .increment-button .arrow,
+.scroll-bar .decrement-button .arrow {
+    -fx-background-color: lightgray;
+}
+.scroll-bar .increment-button:hover .arrow,
+.scroll-bar .decrement-button:hover .arrow {
+    -fx-background-color: white;
+}
+
+/* Στυλ για το Label που δείχνει το τρέχον path */
+#currentPath {
+    -fx-text-fill: limegreen; /* Κλασικό πράσινο terminal */
+    -fx-border-color: #666666;
+    -fx-border-width: 0 0 1px 0; /* Μόνο κάτω περίγραμμα */
+    -fx-padding: 5px;
+    -fx-background-color: black;
+    -fx-font-size: 10px;
+}
+
+/* Προσαρμογή του ToolBar */
+.tool-bar {
+    -fx-background-color: black;
+    -fx-padding: 0;             /* Μηδενικό padding για το ToolBar */
+    -fx-background-insets: 0;   /* Μηδενικά insets */
+    -fx-spacing: 0; /* Μηδενικό spacing μεταξύ των κουμπιών μέσα στο ToolBar */
+}
+
+/* Στυλ για τα κουμπιά 'Up', 'About', 'Full screen' */
+#upButton, #aboutButton, #fullscreenButton {
+    -fx-pref-width: 100%; /* Τα κάνουμε να πιάνουν όλο το πλάτος του ToolBar */
+    -fx-max-width: 100%;
+}
+
+/* --- About Dialog Styling --- */
+/* Γενικές ρυθμίσεις για το VBox περιεχομένου του About Dialog */
+.vbox#aboutContent {
+    -fx-background-color: black;
+    -fx-border-color: #666666; /* Όριο όπως τα κουμπιά */
+    -fx-border-width: 1px;
+    -fx-border-radius: 0;
+}
+
+/* Για το κείμενο μέσα στο About Dialog */
+#aboutText {
+    -fx-text-fill: lightgray;
+    -fx-font-size: 10px;
+    -fx-alignment: CENTER;
+    -fx-wrap-text: true;
+    -fx-line-spacing: 3px; /* Αυξάνει την απόσταση μεταξύ των γραμμών */
+}
+
+/* Για το κουμπί ΟΚ στο About Dialog */
+#okButton {
+    -fx-background-color: #333333;
+    -fx-text-fill: lightgray;
+    -fx-border-color: #666666;
+    -fx-border-width: 1px;
+    -fx-background-radius: 0;
+    -fx-border-radius: 0;
+    -fx-padding: 5px 10px;
+    -fx-alignment: CENTER;
+}
+
+#okButton:hover {
+    -fx-background-color: #555555;
+    -fx-border-color: white;
+}
+
+/* --- Easter Egg Dialog Styling --- */
+/* Γενικές ρυθμίσεις για το VBox περιεχομένου του Easter Egg Dialog */
+.vbox#easterEggLayout {
+    -fx-background-color: black;
+    -fx-border-color: #666666;
+    -fx-border-width: 1px;
+    -fx-border-radius: 0;
+}
