@@ -4,11 +4,16 @@ pom.xml.tag
 pom.xml.versionsBackup
 pom.xml.next
 release.properties
+dependency-reduced-pom.xml
 /release/
 /repo/
 /build/
 .mvn/wrapper/maven-wrapper.jar
 !/.mvn/wrapper/maven-wrapper.properties
+
+# Release artifacts (generated files)
+/releases/
+release-bundle-*.zip
 
 # Eclipse
 .classpath
@@ -31,11 +36,21 @@ out/
 ehthumbs.db
 Thumbs.db
 *.log
+
+# Compiled files
 *.class
+
+# Archives (but keep source archives in docs if any)
 *.jar
 *.war
 *.zip
 *.rar
 *.7z
+
 # Local history files
 .history
+
+# Temporary files
+*.tmp
+*.temp
+*~

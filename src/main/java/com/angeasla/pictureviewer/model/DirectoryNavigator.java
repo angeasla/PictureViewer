@@ -54,7 +54,10 @@ public class DirectoryNavigator {
                     .map(File::toPath) // Convert File objects to Path objects.
                     .forEach(listView.getItems()::add); // Add them to the ListView.
 
-            currentPathLabel.setText("C:\\>"); // Display a generic root path indicator.
+            // Display appropriate root path indicator based on OS
+            String rootIndicator = System.getProperty("os.name").toLowerCase().contains("windows") ? 
+                "Drives" : "File System Roots";
+            currentPathLabel.setText(rootIndicator);
         });
     }
 
