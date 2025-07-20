@@ -38,7 +38,8 @@ if command -v jpackage &> /dev/null; then
         --description "A simple picture viewer application" \
         --vendor "Angeasla" \
         --dest releases \
-        --type app-image; then
+        --type app-image \
+        --icon src/main/resources/app_icon.png; then
         echo "SUCCESS: Portable app-image created"
     else
         echo "ERROR: Portable app-image failed"
@@ -57,7 +58,10 @@ if command -v jpackage &> /dev/null; then
         --dest releases \
         --type deb \
         --linux-menu-group "Graphics" \
-        --linux-shortcut; then
+        --linux-shortcut \
+        --icon src/main/resources/app_icon.png \
+        --linux-deb-maintainer "angeasla@example.com" \
+        --resource-dir packaging/deb; then
         echo "SUCCESS: .deb installer created"
     else
         echo "ERROR: .deb installer failed"
@@ -76,7 +80,8 @@ if command -v jpackage &> /dev/null; then
         --dest releases \
         --type rpm \
         --linux-menu-group "Graphics" \
-        --linux-shortcut 2>/dev/null; then
+        --linux-shortcut \
+        --icon src/main/resources/app_icon.png 2>/dev/null; then
         echo "SUCCESS: .rpm installer created"
     else
         echo "WARNING: .rpm installer not supported on this system"

@@ -1,0 +1,32 @@
+#!/bin/bash
+# Post-installation script for picture-viewer
+
+# Copy icon to system icon directory for better integration
+if [ -f "/opt/picture-viewer/lib/picture-viewer.png" ]; then
+    # Create hicolor icon directory if it doesn't exist
+    mkdir -p /usr/share/icons/hicolor/48x48/apps/
+    
+    # Copy the icon to the system location
+    cp /opt/picture-viewer/lib/picture-viewer.png /usr/share/icons/hicolor/48x48/apps/picture-viewer.png
+    
+    # Update icon cache
+    if command -v gtk-update-icon-cache >/dev/null 2>&1; then
+        gtk-update-icon-cache -f -t /usr/share/icons/hicolor/ 2>/dev/null || true
+    fi
+fi
+
+# Copy desktop file to system applications directory
+if [ -f "/opt/picture-viewer/lib/picture-viewer-picture-viewer.desktop" ]; then
+    # Copy desktop file to applications directory
+    cp /opt/picture-viewer/lib/picture-viewer-picture-viewer.desktop /usr/share/applications/
+    
+    # Update the desktop file to use the system icon path
+    sed -i 's|Icon=/opt/picture-viewer/lib/picture-viewer.png|Icon=picture-viewer|g' /usr/share/applications/picture-viewer-picture-viewer.desktop
+    
+    # Update desktop database
+    if command -v update-desktop-database >/dev/null 2>&1; then
+        update-desktop-database /usr/share/applications/ 2>/dev/null || true
+    fi
+fi
+
+exit 0

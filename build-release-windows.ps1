@@ -45,7 +45,8 @@ if (Get-Command jpackage -ErrorAction SilentlyContinue) {
         --description "A simple picture viewer application" `
         --vendor "Angeasla" `
         --dest releases `
-        --type app-image
+        --type app-image `
+        --icon src/main/resources/app_icon.ico
     
     if ($LASTEXITCODE -eq 0) {
         Write-Host "SUCCESS: Portable app-image created" -ForegroundColor Green
@@ -67,7 +68,8 @@ if (Get-Command jpackage -ErrorAction SilentlyContinue) {
         --type exe `
         --win-menu `
         --win-shortcut `
-        --win-dir-chooser
+        --win-dir-chooser `
+        --icon src/main/resources/app_icon.ico
     
     if ($LASTEXITCODE -eq 0) {
         Write-Host "SUCCESS: .exe installer created" -ForegroundColor Green
@@ -89,7 +91,8 @@ if (Get-Command jpackage -ErrorAction SilentlyContinue) {
         --type msi `
         --win-menu `
         --win-shortcut `
-        --win-dir-chooser
+        --win-dir-chooser `
+        --icon src/main/resources/app_icon.ico
     
     if ($LASTEXITCODE -eq 0) {
         Write-Host "SUCCESS: .msi installer created" -ForegroundColor Green
