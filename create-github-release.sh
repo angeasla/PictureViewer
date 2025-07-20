@@ -13,7 +13,6 @@ RELEASE_DIR="releases"
 REQUIRED_FILES=(
     "picture-viewer_1.0_amd64.deb"
     "picture-viewer-linux-native-v1.0.tar.gz"
-    "picture-viewer-linux-jar-only-v1.0.tar.gz"
     "picture-viewer-windows-jar-only-v1.0.zip"
     "picture-viewer-universal-jar-v1.0.zip"
     "USAGE.md"
